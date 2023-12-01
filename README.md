@@ -6,9 +6,14 @@ An Ethereum Gas Fee Estimator, based on the EIP-1559
 
 ## Context
 Before the London fork, the gas price calculators only needed to look at the gas price of transactions in previous blocks to determine what the spread of bids should look like for the current block. Post London fork, the gas prices are split into base fees and priority fees. Since the base fee is a fixed rate set by the protocol, the only bid that we need to estimate is what to bid for the priority fee. Thus, the calculators need to be updated.
-There are two important metrics we need to look at first:
-1. How full was this block?
-2. How much did transactions have to bid to be included in this block?
+
+## How EIP-1599 works
+EIP-1599 works on the basis of three variables:
+* **base fee**: It represents the reserve that must be paid for a transaction to be included in a block. It is calculated based on the previous blocks, and it is predictable for users.
+* **max priority fee per gas**:  This is a variable controlled by the user, it is a part that goes to the miner and it can be thinked as a tip paid to the miner to prioritize the mining of the block.
+* **max fee per gas**: it is controlled by the user, it represent the maximum amount that a user is willing to pay for their transaction. It includes the base fee + max priority fee per gas. The difference between the max fee per gas and the sum of the base fee and the max priority fee per gas is returned to the user. 
+
+
 
 The answers to these questions will help us determine how much we should bid to be included in the pending block.
 
