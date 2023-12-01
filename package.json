@@ -9,6 +9,7 @@
   "author": "Christian Palazzo",
   "license": "MIT",
   "dependencies": {
-    "web3": "^4.2.2"
+    "@alch/alchemy-web3": "^1.4.7",
+    "dotenv": "^16.3.1"
   }
 }
