@@ -1,0 +1,14 @@
+{
+  "name": "gas-fee-estimator",
+  "version": "1.0.0",
+  "description": "a simple gas fee estimator based on EIP-1599",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Christian Palazzo",
+  "license": "MIT",
+  "dependencies": {
+    "web3": "^4.2.2"
+  }
+}
