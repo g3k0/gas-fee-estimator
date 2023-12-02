@@ -13,14 +13,36 @@ EIP-1599 works on the basis of three variables:
 * **max priority fee per gas**:  This is a variable controlled by the user, it is a part that goes to the miner and it can be thinked as a tip paid to the miner to prioritize the mining of the block.
 * **max fee per gas**: it is controlled by the user, it represent the maximum amount that a user is willing to pay for their transaction. It includes the base fee + max priority fee per gas. The difference between the max fee per gas and the sum of the base fee and the max priority fee per gas is returned to the user.
 
-## How this library works
+## How this estimator library works
 This library interacts with an underlying blockchain network using and API layer implemented by [Alchemy](https://www.alchemy.com/).
 In order to work, set a local .env file in the root foldet of this project containing the required network http url furnished by Alchemy.
 
 You can use this library with any Ethereum network (e.g. mainnet, goerli)
 
-## Why to use this library
-If you want to mine a block in the mainnet network, you can run this library and get an idea of the costs.
+This script calculates the results based on the last 20 blocks in the blockchain, and returns 3 prices, respectively for a slow, average and fast mining (it depends of the tip paid to the miner). The results are expressed in Wei:
+
+```js
+{ 
+    slow: 35885684480,
+    average: 36282184480,
+    fast: 39053000797
+}
+```
+The max priority fee per gas (aka tip) is calculated using the 25th, 50th, and 75th percentiles of each priority fees for the 20 transactions considered (average).
+
+The script is configured to report the costs for a mining on the production mainnet network.
+
+
+## How to run the estimator
+
+1. Install [node.js](https://nodejs.org/en) on your machine;
+2. go in the root folder of this project;
+3. run ```npm i``` to install the required dependencies;
+4. run ```node .``` ro run the script;
+5. have fun :)
+
+## Why to use this estimator
+If you want to know how much you will pay for your block to be mined in the mainnet network, you can run this library and get an idea of the cost (or simply surf the web for another browser extension to install).
 
 
 ## Further readings
