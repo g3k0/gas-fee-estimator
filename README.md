@@ -15,7 +15,7 @@ EIP-1599 works on the basis of three variables:
 
 ## How this estimator library works
 This library interacts with an underlying blockchain network using and API layer implemented by [Alchemy](https://www.alchemy.com/).
-In order to work, set a local .env file in the root foldet of this project containing the required network http url furnished by Alchemy.
+In order to work, set a local .env file in the root folder of this project containing the required network http url furnished by Alchemy.
 
 You can use this library with any Ethereum network (e.g. mainnet, goerli)
 
@@ -38,6 +38,7 @@ The script is configured to report the costs for a mining on the production main
 1. Install [node.js](https://nodejs.org/en) on your machine;
 2. go in the root folder of this project;
 3. run ```npm i``` to install the required dependencies;
+4. create an .env file and write the following env variable containing your private API key ```API_URL_HTTP_PROD_MAINNET=<your-url>```
 4. run ```node .``` ro run the script;
 5. have fun :)
 
