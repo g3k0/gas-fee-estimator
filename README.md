@@ -11,11 +11,17 @@ Before the London fork, the gas price calculators only needed to look at the gas
 EIP-1599 works on the basis of three variables:
 * **base fee**: It represents the reserve that must be paid for a transaction to be included in a block. It is calculated based on the previous blocks, and it is predictable for users.
 * **max priority fee per gas**:  This is a variable controlled by the user, it is a part that goes to the miner and it can be thinked as a tip paid to the miner to prioritize the mining of the block.
-* **max fee per gas**: it is controlled by the user, it represent the maximum amount that a user is willing to pay for their transaction. It includes the base fee + max priority fee per gas. The difference between the max fee per gas and the sum of the base fee and the max priority fee per gas is returned to the user. 
+* **max fee per gas**: it is controlled by the user, it represent the maximum amount that a user is willing to pay for their transaction. It includes the base fee + max priority fee per gas. The difference between the max fee per gas and the sum of the base fee and the max priority fee per gas is returned to the user.
 
+## How this library works
+This library interacts with an underlying blockchain network using and API layer implemented by [Alchemy](https://www.alchemy.com/).
+In order to work, set a local .env file in the root foldet of this project containing the required network http url furnished by Alchemy.
 
+You can use this library with any Ethereum network (e.g. mainnet, goerli)
 
-The answers to these questions will help us determine how much we should bid to be included in the pending block.
+## Why to use this library
+If you want to mine a block in the mainnet network, you can run this library and get an idea of the costs.
+
 
 ## Further readings
 * [Coinbase What is EIP-1559?](https://help.coinbase.com/en/coinbase/getting-started/crypto-education/eip-1559)
