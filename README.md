@@ -14,10 +14,11 @@ EIP-1599 works on the basis of three variables:
 * **max fee per gas**: it is controlled by the user, it represent the maximum amount that a user is willing to pay for their transaction. It includes the base fee + max priority fee per gas. The difference between the max fee per gas and the sum of the base fee and the max priority fee per gas is returned to the user.
 
 ## How this estimator library works
-This library interacts with an underlying blockchain network using and API layer implemented by [Alchemy](https://www.alchemy.com/).
-In order to work, set a local .env file in the root folder of this project containing the required network http url furnished by Alchemy.
+This library interacts with the blockchain network using and API layer implemented by [Alchemy](https://www.alchemy.com/).
 
-You can use this library with any Ethereum network (e.g. mainnet, goerli)
+To work, the estimator requires an http endpoint furnished by Alchemy with which the estimator interacts with the underlying blockchain network.
+
+You can use this library with any Ethereum network (e.g. mainnet, goerli) by manually configuring the script.
 
 This script calculates the results based on the last 20 blocks in the blockchain, and returns 3 prices, respectively for a slow, average and fast mining (it depends of the tip paid to the miner). The results are expressed in Wei:
 
